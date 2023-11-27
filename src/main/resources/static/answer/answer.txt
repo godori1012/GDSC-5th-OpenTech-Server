@@ -1,0 +1,47 @@
+// BasicController.java
+
+@Controller
+@RequiredArgsConstructor
+public class BasicController {
+    private final TranslateService translateService;
+    @GetMapping("/")
+    public String getTranslates(Model model){
+        List<Translate> translates = translateService.findTranslates();
+        model.addAttribute("translates", translates);
+        model.addAttribute("translateForm", new TranslateForm());
+        return "index";
+    }
+
+    @PostMapping("/translate")
+    public String translateAlien(Model model, TranslateForm form) {
+        Translate translate = new Translate();
+        translate.setAlien(form.getAlien());
+        translate.setKorean(form.getKorean());
+        translateService.saveTranslate(translate);
+        model.addAttribute("alienResult", form.getAlien());
+        model.addAttribute("koreanResult", form.getKorean());
+        return "translate";
+    }
+}
+
+// AdvancedController.java
+
+@RestController //메서드의 반환값이 자동으로 JSON으로 변환된다.
+@Tag(name = "예제 API", description = "오픈 테크 세미나용 API")
+@RequestMapping("/api")
+@RequiredArgsConstructor
+public class AdvancedController {
+    private final TranslateService translateService;
+    @GetMapping("/")
+    public CommonResponse<List<Translate>> getTranslates(){
+        List<Translate> translates = translateService.findTranslates();
+        return CommonResponse.onSuccess(HttpStatus.OK.value(), translates);
+    }
+
+    @PostMapping("/translate")
+    @Operation(summary = "외계인 번역 포스트", description = "외계어와 한국어 번역을 포스트하는 API 입니다.")
+    public CommonResponse<Translate> translateAlien(@RequestBody Translate translate) {
+        translateService.saveTranslate(translate);
+        return CommonResponse.onSuccess(HttpStatus.CREATED.value());
+    }
+}

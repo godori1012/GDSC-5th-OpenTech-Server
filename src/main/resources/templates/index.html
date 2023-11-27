@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css">
+    <title>Open Tech Seminar</title>
+</head>
+<body>
+
+<header>
+    <p class="header-title">Let's Learn Spring Boot with GDSC!</p>
+    <a th:href="@{/}">
+        <img src="/images/profile-gdsc.png" alt="Profile" class="profile-img"/>
+    </a>
+</header>
+
+<div class="body-div">
+
+    <img src="/images/img-alien.png" alt="Alien" class="alien-img"/>
+
+    <div class="form-div">
+        <form action="/translate" method="post" class="flex-container" th:object="${translateForm}">
+            <div class="form-group">
+                <label for="alien">외계인어</label>
+                <input type="text" id="alien" name="alien" th:field="*{alien}"/>
+            </div>
+            <div class="form-group">
+                <label for="korean">지구인어</label>
+                <input type="text" id="korean" name="korean" th:field="*{korean}"/>
+            </div>
+
+            <button type="submit">등록</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>외계인어</th>
+            <th>지구인어</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="translate : ${translates}">
+            <td th:text="${translate.alien}"></td>
+            <td th:text="${translate.korean}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+</html>

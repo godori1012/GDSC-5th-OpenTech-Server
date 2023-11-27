@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css">
+  <title>Open Tech Seminar</title>
+</head>
+<body>
+
+<header>
+  <p class="header-title">Let's Learn Spring Boot with GDSC!</p>
+  <a th:href="@{/}">
+    <img src="/images/profile-gdsc.png" alt="Profile" class="profile-img"/>
+  </a>
+</header>
+
+<div class="body-div">
+  <h1>👽성공적으로 번역했습니다!👽</h1>
+  <p>당신은 이제 비밀을 지켜야 합니다...</p>
+
+  <img src="/images/img-top-secret.png" alt="Alien" class="secret-img"/>
+
+  <p>외계어: <span th:text="${alienResult}"></span></p>
+  <p>한국어: <span th:text="${koreanResult}"></span></p>
+</div>
+
+</body>
+</html>
