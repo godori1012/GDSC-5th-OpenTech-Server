@@ -50,3 +50,10 @@ public CommonResponse<Translate> translateAlien(@RequestBody Translate translate
 
 
 ## 🖥️ Result
+### 완성된 로직-BasicController
+![BasicController 로직](https://github.com/JeonHaeseung/GDSC-5th-OpenTech-Server/assets/89632139/03720891-da37-48c5-a842-3b489387e1e4)
+![BasicController 로직](https://github.com/JeonHaeseung/GDSC-5th-OpenTech-Server/assets/89632139/04571850-c673-4477-87c1-1d88aa114d81)
+
+### 완성된 로직-AdvancedController
+![AdvancedController 로직](https://github.com/JeonHaeseung/GDSC-5th-OpenTech-Server/assets/89632139/e8ca724c-c09d-4ded-b9dc-e5028c90b39d)
+
