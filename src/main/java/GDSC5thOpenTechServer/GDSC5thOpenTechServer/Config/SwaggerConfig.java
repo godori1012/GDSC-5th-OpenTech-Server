@@ -1,4 +1,3 @@
-/*
 package GDSC5thOpenTechServer.GDSC5thOpenTechServer.Config;
 
 import io.swagger.v3.oas.models.Components;
@@ -25,4 +24,3 @@ public class SwaggerConfig {
     }
 
 }
- */

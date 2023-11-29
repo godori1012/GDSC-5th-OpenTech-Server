@@ -1,4 +1,3 @@
-/*
 package GDSC5thOpenTechServer.GDSC5thOpenTechServer.Translate;
 
 import GDSC5thOpenTechServer.GDSC5thOpenTechServer.Common.CommonResponse;
@@ -18,12 +17,15 @@ public class AdvancedController {
     @GetMapping("/")
     public CommonResponse<List<Translate>> getTranslates(){
         //모든 "외계인어-지구인어" 리스트 가져오기
+        List<Translate> translates = translateService.findTranslates();
+        return CommonResponse.onSuccess(HttpStatus.OK.value(), translates);
     }
 
     @PostMapping("/translate")
     @Operation(summary = "외계인 번역 포스트", description = "외계어와 한국어 번역을 포스트하는 API 입니다.")
     public CommonResponse<Translate> translateAlien(@RequestBody Translate translate) {
         //새로운 "외계인어-지구인어" 번역 만들기
+        translateService.saveTranslate(translate);
+        return CommonResponse.onSuccess(HttpStatus.CREATED.value());
     }
 }
- */
